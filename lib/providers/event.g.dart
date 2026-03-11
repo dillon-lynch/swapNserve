@@ -6,7 +6,24 @@ part of 'event.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$eventsStreamHash() => r'208591e8c0c6cefd8fee5ced6ae02b0b8470ebda';
+String _$eventRepositoryHash() => r'c7f67dd334df73175edda838bec79ca1d5946276';
+
+/// See also [eventRepository].
+@ProviderFor(eventRepository)
+final eventRepositoryProvider = AutoDisposeProvider<EventRepository>.internal(
+  eventRepository,
+  name: r'eventRepositoryProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$eventRepositoryHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef EventRepositoryRef = AutoDisposeProviderRef<EventRepository>;
+String _$eventsStreamHash() => r'130b597a2d428d27c9c098be6c2bbf4a4358f5f7';
 
 /// See also [eventsStream].
 @ProviderFor(eventsStream)
@@ -23,7 +40,7 @@ final eventsStreamProvider = AutoDisposeStreamProvider<List<Event>>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef EventsStreamRef = AutoDisposeStreamProviderRef<List<Event>>;
-String _$eventHash() => r'bd0816978daf8aa93e314ca80bb1a4577adde909';
+String _$eventHash() => r'7a3d8a10571dcc29db6ca15fd40f83067defd3dc';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -158,7 +175,7 @@ class _EventProviderElement extends AutoDisposeFutureProviderElement<Event>
   String get eventId => (origin as EventProvider).eventId;
 }
 
-String _$eventsForLocationHash() => r'1ce22a9b88e73e48532752668b7e87e3e8ac25de';
+String _$eventsForLocationHash() => r'1634f0a42ebe88c13d4112f99ad12b78158c1ae8';
 
 /// See also [eventsForLocation].
 @ProviderFor(eventsForLocation)
@@ -278,22 +295,5 @@ class _EventsForLocationProviderElement
   String get locationId => (origin as EventsForLocationProvider).locationId;
 }
 
-String _$eventActionsHash() => r'842a456b88794f34b8f1bfa144bcce8ace878f81';
-
-/// See also [eventActions].
-@ProviderFor(eventActions)
-final eventActionsProvider = AutoDisposeProvider<EventActions>.internal(
-  eventActions,
-  name: r'eventActionsProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$eventActionsHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef EventActionsRef = AutoDisposeProviderRef<EventActions>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

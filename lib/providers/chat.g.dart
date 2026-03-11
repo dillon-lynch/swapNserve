@@ -6,7 +6,24 @@ part of 'chat.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$chatMessagesHash() => r'37241aa982000aee217bec5c2e2c121475cdc35a';
+String _$chatRepositoryHash() => r'b2dded8a62d40083dcd54e15edbb2e814d700b1c';
+
+/// See also [chatRepository].
+@ProviderFor(chatRepository)
+final chatRepositoryProvider = AutoDisposeProvider<ChatRepository>.internal(
+  chatRepository,
+  name: r'chatRepositoryProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$chatRepositoryHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef ChatRepositoryRef = AutoDisposeProviderRef<ChatRepository>;
+String _$chatMessagesHash() => r'9f03f80eab38c41cf2f7b45f2440ffd732cf2fcb';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -148,22 +165,5 @@ class _ChatMessagesProviderElement
   String get eventId => (origin as ChatMessagesProvider).eventId;
 }
 
-String _$chatActionsHash() => r'5eea3e561b96bffa5c7b75206467092864c6940e';
-
-/// See also [chatActions].
-@ProviderFor(chatActions)
-final chatActionsProvider = AutoDisposeProvider<ChatActions>.internal(
-  chatActions,
-  name: r'chatActionsProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$chatActionsHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef ChatActionsRef = AutoDisposeProviderRef<ChatActions>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

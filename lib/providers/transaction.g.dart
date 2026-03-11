@@ -6,7 +6,7 @@ part of 'transaction.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$itemTransactionsHash() => r'2376efa1cc91310eae93ef872c6ca29ee411c8be';
+String _$itemTransactionsHash() => r'7423ccaa84e91e7986f49b2589ce35d9e08d95a5';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -148,7 +148,7 @@ class _ItemTransactionsProviderElement
   String get itemId => (origin as ItemTransactionsProvider).itemId;
 }
 
-String _$eventTransactionsHash() => r'0e75f6a76eedeab3e0b7f37fd3be6b3384fbba79';
+String _$eventTransactionsHash() => r'55cc6ae587bcd0e776428c6acbb016e09925c200';
 
 /// See also [eventTransactions].
 @ProviderFor(eventTransactions)
@@ -269,26 +269,18 @@ class _EventTransactionsProviderElement
   String get eventId => (origin as EventTransactionsProvider).eventId;
 }
 
-String _$itemStockHash() => r'7756000d49ae69aa9e9b6f869700d2e4625f25aa';
+String _$itemStockHash() => r'858292a8a43cb2819346a03b5064b05b37025a72';
 
-/// Derives current stock for an item: SUM(intake) - SUM(distributed).
-///
-/// Copied from [itemStock].
+/// See also [itemStock].
 @ProviderFor(itemStock)
 const itemStockProvider = ItemStockFamily();
 
-/// Derives current stock for an item: SUM(intake) - SUM(distributed).
-///
-/// Copied from [itemStock].
+/// See also [itemStock].
 class ItemStockFamily extends Family<AsyncValue<int>> {
-  /// Derives current stock for an item: SUM(intake) - SUM(distributed).
-  ///
-  /// Copied from [itemStock].
+  /// See also [itemStock].
   const ItemStockFamily();
 
-  /// Derives current stock for an item: SUM(intake) - SUM(distributed).
-  ///
-  /// Copied from [itemStock].
+  /// See also [itemStock].
   ItemStockProvider call(String itemId) {
     return ItemStockProvider(itemId);
   }
@@ -313,13 +305,9 @@ class ItemStockFamily extends Family<AsyncValue<int>> {
   String? get name => r'itemStockProvider';
 }
 
-/// Derives current stock for an item: SUM(intake) - SUM(distributed).
-///
-/// Copied from [itemStock].
+/// See also [itemStock].
 class ItemStockProvider extends AutoDisposeFutureProvider<int> {
-  /// Derives current stock for an item: SUM(intake) - SUM(distributed).
-  ///
-  /// Copied from [itemStock].
+  /// See also [itemStock].
   ItemStockProvider(String itemId)
     : this._internal(
         (ref) => itemStock(ref as ItemStockRef, itemId),
@@ -396,26 +384,18 @@ class _ItemStockProviderElement extends AutoDisposeFutureProviderElement<int>
 }
 
 String _$eventDistributionTotalHash() =>
-    r'3dd32adceac88c704698b88dbf8f23f3271afc0b';
+    r'ea4747fc9c70c890d01d857bfdbb138e83dc04d7';
 
-/// Total items distributed during a specific event.
-///
-/// Copied from [eventDistributionTotal].
+/// See also [eventDistributionTotal].
 @ProviderFor(eventDistributionTotal)
 const eventDistributionTotalProvider = EventDistributionTotalFamily();
 
-/// Total items distributed during a specific event.
-///
-/// Copied from [eventDistributionTotal].
+/// See also [eventDistributionTotal].
 class EventDistributionTotalFamily extends Family<AsyncValue<int>> {
-  /// Total items distributed during a specific event.
-  ///
-  /// Copied from [eventDistributionTotal].
+  /// See also [eventDistributionTotal].
   const EventDistributionTotalFamily();
 
-  /// Total items distributed during a specific event.
-  ///
-  /// Copied from [eventDistributionTotal].
+  /// See also [eventDistributionTotal].
   EventDistributionTotalProvider call(String eventId) {
     return EventDistributionTotalProvider(eventId);
   }
@@ -442,13 +422,9 @@ class EventDistributionTotalFamily extends Family<AsyncValue<int>> {
   String? get name => r'eventDistributionTotalProvider';
 }
 
-/// Total items distributed during a specific event.
-///
-/// Copied from [eventDistributionTotal].
+/// See also [eventDistributionTotal].
 class EventDistributionTotalProvider extends AutoDisposeFutureProvider<int> {
-  /// Total items distributed during a specific event.
-  ///
-  /// Copied from [eventDistributionTotal].
+  /// See also [eventDistributionTotal].
   EventDistributionTotalProvider(String eventId)
     : this._internal(
         (ref) =>
@@ -529,24 +505,5 @@ class _EventDistributionTotalProviderElement
   String get eventId => (origin as EventDistributionTotalProvider).eventId;
 }
 
-String _$transactionActionsHash() =>
-    r'ea7519a7620a23f4a72d6f57349cd5c2f55ccfd2';
-
-/// See also [transactionActions].
-@ProviderFor(transactionActions)
-final transactionActionsProvider =
-    AutoDisposeProvider<TransactionActions>.internal(
-      transactionActions,
-      name: r'transactionActionsProvider',
-      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-          ? null
-          : _$transactionActionsHash,
-      dependencies: null,
-      allTransitiveDependencies: null,
-    );
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef TransactionActionsRef = AutoDisposeProviderRef<TransactionActions>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

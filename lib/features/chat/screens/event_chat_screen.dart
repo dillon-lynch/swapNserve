@@ -36,7 +36,7 @@ class _EventChatScreenState extends ConsumerState<EventChatScreen> {
       sentAt: DateTime.now(),
     );
 
-    await ref.read(chatActionsProvider).sendMessage(widget.eventId, message);
+    await ref.read(chatRepositoryProvider).sendMessage(message);
 
     _controller.clear();
   }

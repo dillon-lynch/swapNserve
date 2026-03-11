@@ -6,7 +6,26 @@ part of 'inventory.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$inventoryStreamHash() => r'77628a947571158abd84b960dbfb497bfd3bca87';
+String _$inventoryRepositoryHash() =>
+    r'ef3b04e37177114fba8efdaa1d5f8afd5f82f3e7';
+
+/// See also [inventoryRepository].
+@ProviderFor(inventoryRepository)
+final inventoryRepositoryProvider =
+    AutoDisposeProvider<InventoryRepository>.internal(
+      inventoryRepository,
+      name: r'inventoryRepositoryProvider',
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$inventoryRepositoryHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef InventoryRepositoryRef = AutoDisposeProviderRef<InventoryRepository>;
+String _$inventoryStreamHash() => r'70b03862d4175aabf3f916c743dd42347f1786a6';
 
 /// See also [inventoryStream].
 @ProviderFor(inventoryStream)
@@ -24,7 +43,7 @@ final inventoryStreamProvider =
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef InventoryStreamRef = AutoDisposeStreamProviderRef<List<InventoryItem>>;
-String _$inventoryItemHash() => r'e129c54815c566c23759cb5de71fcf6739cd70c3';
+String _$inventoryItemHash() => r'2513108d484bf89bcadd10e1c1fab2206f9f40f6';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -166,7 +185,7 @@ class _InventoryItemProviderElement
 }
 
 String _$inventoryByCategoryHash() =>
-    r'ae2754c41263bf89cd4c1a5b9621d6243f157d21';
+    r'72f8c29e36c48fdddaa98863308799a48ab16f93';
 
 /// See also [inventoryByCategory].
 @ProviderFor(inventoryByCategory)
@@ -290,22 +309,5 @@ class _InventoryByCategoryProviderElement
   String get category => (origin as InventoryByCategoryProvider).category;
 }
 
-String _$inventoryActionsHash() => r'4a6a14bca7807f40f0091b0dd97e6c77de566120';
-
-/// See also [inventoryActions].
-@ProviderFor(inventoryActions)
-final inventoryActionsProvider = AutoDisposeProvider<InventoryActions>.internal(
-  inventoryActions,
-  name: r'inventoryActionsProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$inventoryActionsHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef InventoryActionsRef = AutoDisposeProviderRef<InventoryActions>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

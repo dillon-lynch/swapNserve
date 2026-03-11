@@ -1,57 +1,30 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:swap_n_serve/models/converters/timestamp_converter.dart';
 
-class Location {
-  final String id;
-  final String name;
-  final String address;
-  final double lat;
-  final double lng;
-  final DateTime createdAt;
+part 'location.freezed.dart';
+part 'location.g.dart';
 
-  const Location({
-    required this.id,
-    required this.name,
-    required this.address,
-    required this.lat,
-    required this.lng,
-    required this.createdAt,
-  });
+@freezed
+class Location with _$Location {
+  const Location._();
+
+  const factory Location({
+    required String id,
+    required String name,
+    required String address,
+    required double lat,
+    required double lng,
+    @TimestampConverter() required DateTime createdAt,
+  }) = _Location;
+
+  factory Location.fromJson(Map<String, dynamic> json) =>
+      _$LocationFromJson(json);
 
   factory Location.fromFirestore(DocumentSnapshot doc) {
     final data = doc.data()! as Map<String, dynamic>;
-    return Location(
-      id: doc.id,
-      name: data['name'] as String,
-      address: data['address'] as String,
-      lat: (data['lat'] as num).toDouble(),
-      lng: (data['lng'] as num).toDouble(),
-      createdAt: (data['createdAt'] as Timestamp).toDate(),
-    );
+    return Location.fromJson({...data, 'id': doc.id});
   }
 
-  Map<String, dynamic> toMap() => {
-    'name': name,
-    'address': address,
-    'lat': lat,
-    'lng': lng,
-    'createdAt': Timestamp.fromDate(createdAt),
-  };
-
-  Location copyWith({
-    String? id,
-    String? name,
-    String? address,
-    double? lat,
-    double? lng,
-    DateTime? createdAt,
-  }) {
-    return Location(
-      id: id ?? this.id,
-      name: name ?? this.name,
-      address: address ?? this.address,
-      lat: lat ?? this.lat,
-      lng: lng ?? this.lng,
-      createdAt: createdAt ?? this.createdAt,
-    );
-  }
+  Map<String, dynamic> toMap() => toJson()..remove('id');
 }

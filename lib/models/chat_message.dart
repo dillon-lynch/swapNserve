@@ -1,39 +1,30 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:swap_n_serve/models/converters/timestamp_converter.dart';
 
-class ChatMessage {
-  final String id;
-  final String eventId;
-  final String senderId;
-  final String senderName;
-  final String text;
-  final DateTime sentAt;
+part 'chat_message.freezed.dart';
+part 'chat_message.g.dart';
 
-  const ChatMessage({
-    required this.id,
-    required this.eventId,
-    required this.senderId,
-    required this.senderName,
-    required this.text,
-    required this.sentAt,
-  });
+@freezed
+class ChatMessage with _$ChatMessage {
+  const ChatMessage._();
+
+  const factory ChatMessage({
+    required String id,
+    required String eventId,
+    required String senderId,
+    required String senderName,
+    required String text,
+    @TimestampConverter() required DateTime sentAt,
+  }) = _ChatMessage;
+
+  factory ChatMessage.fromJson(Map<String, dynamic> json) =>
+      _$ChatMessageFromJson(json);
 
   factory ChatMessage.fromFirestore(DocumentSnapshot doc) {
     final data = doc.data()! as Map<String, dynamic>;
-    return ChatMessage(
-      id: doc.id,
-      eventId: data['eventId'] as String,
-      senderId: data['senderId'] as String,
-      senderName: data['senderName'] as String,
-      text: data['text'] as String,
-      sentAt: (data['sentAt'] as Timestamp).toDate(),
-    );
+    return ChatMessage.fromJson({...data, 'id': doc.id});
   }
 
-  Map<String, dynamic> toMap() => {
-    'eventId': eventId,
-    'senderId': senderId,
-    'senderName': senderName,
-    'text': text,
-    'sentAt': Timestamp.fromDate(sentAt),
-  };
+  Map<String, dynamic> toMap() => toJson()..remove('id');
 }

@@ -6,7 +6,24 @@ part of 'user.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$usersStreamHash() => r'aeb06a90c7250d1cc7fea67cb1ff40bfd9e6d195';
+String _$staffRepositoryHash() => r'fd0c05a9740784b297979c6436a0d79940d2b08f';
+
+/// See also [staffRepository].
+@ProviderFor(staffRepository)
+final staffRepositoryProvider = AutoDisposeProvider<StaffRepository>.internal(
+  staffRepository,
+  name: r'staffRepositoryProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$staffRepositoryHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef StaffRepositoryRef = AutoDisposeProviderRef<StaffRepository>;
+String _$usersStreamHash() => r'c6e897bc20d25ac8dbf37884076ab5063ccdded8';
 
 /// See also [usersStream].
 @ProviderFor(usersStream)
@@ -23,7 +40,7 @@ final usersStreamProvider = AutoDisposeStreamProvider<List<AppUser>>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef UsersStreamRef = AutoDisposeStreamProviderRef<List<AppUser>>;
-String _$userHash() => r'353d88badfa79f30879d40f8abc64a01f952c5da';
+String _$userHash() => r'9fc03465c97d4561dcbedb87541e3cd719de6b1b';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -158,22 +175,5 @@ class _UserProviderElement extends AutoDisposeFutureProviderElement<AppUser>
   String get userId => (origin as UserProvider).userId;
 }
 
-String _$userActionsHash() => r'ef95ee8c6ad69836158b2e3b7c1916673c478f64';
-
-/// See also [userActions].
-@ProviderFor(userActions)
-final userActionsProvider = AutoDisposeProvider<UserActions>.internal(
-  userActions,
-  name: r'userActionsProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$userActionsHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef UserActionsRef = AutoDisposeProviderRef<UserActions>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

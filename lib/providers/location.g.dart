@@ -6,7 +6,26 @@ part of 'location.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$locationsStreamHash() => r'a7877c789caaf425a15cb419d6acfbfcc4d0ef1b';
+String _$locationRepositoryHash() =>
+    r'52cfb1c4b1f5db06a746de9cf2d98258be12ec7a';
+
+/// See also [locationRepository].
+@ProviderFor(locationRepository)
+final locationRepositoryProvider =
+    AutoDisposeProvider<LocationRepository>.internal(
+      locationRepository,
+      name: r'locationRepositoryProvider',
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$locationRepositoryHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef LocationRepositoryRef = AutoDisposeProviderRef<LocationRepository>;
+String _$locationsStreamHash() => r'fc256f5a48940840391468097ad869042c000ac7';
 
 /// See also [locationsStream].
 @ProviderFor(locationsStream)
@@ -24,7 +43,7 @@ final locationsStreamProvider =
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef LocationsStreamRef = AutoDisposeStreamProviderRef<List<Location>>;
-String _$locationHash() => r'0016a0c861ed6faa3db4b242f65d24a16df279af';
+String _$locationHash() => r'eef9d5275894a71f5f176b4d90bc88a7e11e4225';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -162,22 +181,5 @@ class _LocationProviderElement
   String get locationId => (origin as LocationProvider).locationId;
 }
 
-String _$locationActionsHash() => r'de49f169bd38aa2a566b3473fe8d4cf293b1e89b';
-
-/// See also [locationActions].
-@ProviderFor(locationActions)
-final locationActionsProvider = AutoDisposeProvider<LocationActions>.internal(
-  locationActions,
-  name: r'locationActionsProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$locationActionsHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef LocationActionsRef = AutoDisposeProviderRef<LocationActions>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
