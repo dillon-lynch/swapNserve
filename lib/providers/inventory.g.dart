@@ -6,7 +6,7 @@ part of 'inventory.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$inventoryStreamHash() => r'04c34c6de588f57916bbf79934213aae0c181130';
+String _$inventoryStreamHash() => r'77628a947571158abd84b960dbfb497bfd3bca87';
 
 /// See also [inventoryStream].
 @ProviderFor(inventoryStream)
@@ -24,7 +24,7 @@ final inventoryStreamProvider =
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef InventoryStreamRef = AutoDisposeStreamProviderRef<List<InventoryItem>>;
-String _$inventoryItemHash() => r'f718dbd5713ff908245d383d7f06318dd6f2d8f2';
+String _$inventoryItemHash() => r'e129c54815c566c23759cb5de71fcf6739cd70c3';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -166,7 +166,7 @@ class _InventoryItemProviderElement
 }
 
 String _$inventoryByCategoryHash() =>
-    r'da8069ce6b4cc01b4c482b1981631373a6774143';
+    r'ae2754c41263bf89cd4c1a5b9621d6243f157d21';
 
 /// See also [inventoryByCategory].
 @ProviderFor(inventoryByCategory)

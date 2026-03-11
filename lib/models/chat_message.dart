@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ChatMessage {
   final String id;
+  final String eventId;
   final String senderId;
   final String senderName;
   final String text;
@@ -9,6 +10,7 @@ class ChatMessage {
 
   const ChatMessage({
     required this.id,
+    required this.eventId,
     required this.senderId,
     required this.senderName,
     required this.text,
@@ -19,6 +21,7 @@ class ChatMessage {
     final data = doc.data()! as Map<String, dynamic>;
     return ChatMessage(
       id: doc.id,
+      eventId: data['eventId'] as String,
       senderId: data['senderId'] as String,
       senderName: data['senderName'] as String,
       text: data['text'] as String,
@@ -27,6 +30,7 @@ class ChatMessage {
   }
 
   Map<String, dynamic> toMap() => {
+    'eventId': eventId,
     'senderId': senderId,
     'senderName': senderName,
     'text': text,

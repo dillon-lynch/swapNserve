@@ -1,29 +1,29 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'staff.dart';
+part of 'user.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$staffStreamHash() => r'084b9113e030bde372b561b7e0340bbe504e9930';
+String _$usersStreamHash() => r'aeb06a90c7250d1cc7fea67cb1ff40bfd9e6d195';
 
-/// See also [staffStream].
-@ProviderFor(staffStream)
-final staffStreamProvider = AutoDisposeStreamProvider<List<Staff>>.internal(
-  staffStream,
-  name: r'staffStreamProvider',
+/// See also [usersStream].
+@ProviderFor(usersStream)
+final usersStreamProvider = AutoDisposeStreamProvider<List<AppUser>>.internal(
+  usersStream,
+  name: r'usersStreamProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$staffStreamHash,
+      : _$usersStreamHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-typedef StaffStreamRef = AutoDisposeStreamProviderRef<List<Staff>>;
-String _$staffMemberHash() => r'7d32308fa6cbd7c7341f6724258e13f495b08af0';
+typedef UsersStreamRef = AutoDisposeStreamProviderRef<List<AppUser>>;
+String _$userHash() => r'353d88badfa79f30879d40f8abc64a01f952c5da';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -46,25 +46,23 @@ class _SystemHash {
   }
 }
 
-/// See also [staffMember].
-@ProviderFor(staffMember)
-const staffMemberProvider = StaffMemberFamily();
+/// See also [user].
+@ProviderFor(user)
+const userProvider = UserFamily();
 
-/// See also [staffMember].
-class StaffMemberFamily extends Family<AsyncValue<Staff>> {
-  /// See also [staffMember].
-  const StaffMemberFamily();
+/// See also [user].
+class UserFamily extends Family<AsyncValue<AppUser>> {
+  /// See also [user].
+  const UserFamily();
 
-  /// See also [staffMember].
-  StaffMemberProvider call(String staffId) {
-    return StaffMemberProvider(staffId);
+  /// See also [user].
+  UserProvider call(String userId) {
+    return UserProvider(userId);
   }
 
   @override
-  StaffMemberProvider getProviderOverride(
-    covariant StaffMemberProvider provider,
-  ) {
-    return call(provider.staffId);
+  UserProvider getProviderOverride(covariant UserProvider provider) {
+    return call(provider.userId);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -79,69 +77,67 @@ class StaffMemberFamily extends Family<AsyncValue<Staff>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'staffMemberProvider';
+  String? get name => r'userProvider';
 }
 
-/// See also [staffMember].
-class StaffMemberProvider extends AutoDisposeFutureProvider<Staff> {
-  /// See also [staffMember].
-  StaffMemberProvider(String staffId)
+/// See also [user].
+class UserProvider extends AutoDisposeFutureProvider<AppUser> {
+  /// See also [user].
+  UserProvider(String userId)
     : this._internal(
-        (ref) => staffMember(ref as StaffMemberRef, staffId),
-        from: staffMemberProvider,
-        name: r'staffMemberProvider',
+        (ref) => user(ref as UserRef, userId),
+        from: userProvider,
+        name: r'userProvider',
         debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
             ? null
-            : _$staffMemberHash,
-        dependencies: StaffMemberFamily._dependencies,
-        allTransitiveDependencies: StaffMemberFamily._allTransitiveDependencies,
-        staffId: staffId,
+            : _$userHash,
+        dependencies: UserFamily._dependencies,
+        allTransitiveDependencies: UserFamily._allTransitiveDependencies,
+        userId: userId,
       );
 
-  StaffMemberProvider._internal(
+  UserProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.staffId,
+    required this.userId,
   }) : super.internal();
 
-  final String staffId;
+  final String userId;
 
   @override
-  Override overrideWith(
-    FutureOr<Staff> Function(StaffMemberRef provider) create,
-  ) {
+  Override overrideWith(FutureOr<AppUser> Function(UserRef provider) create) {
     return ProviderOverride(
       origin: this,
-      override: StaffMemberProvider._internal(
-        (ref) => create(ref as StaffMemberRef),
+      override: UserProvider._internal(
+        (ref) => create(ref as UserRef),
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        staffId: staffId,
+        userId: userId,
       ),
     );
   }
 
   @override
-  AutoDisposeFutureProviderElement<Staff> createElement() {
-    return _StaffMemberProviderElement(this);
+  AutoDisposeFutureProviderElement<AppUser> createElement() {
+    return _UserProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is StaffMemberProvider && other.staffId == staffId;
+    return other is UserProvider && other.userId == userId;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, staffId.hashCode);
+    hash = _SystemHash.combine(hash, userId.hashCode);
 
     return _SystemHash.finish(hash);
   }
@@ -149,36 +145,35 @@ class StaffMemberProvider extends AutoDisposeFutureProvider<Staff> {
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin StaffMemberRef on AutoDisposeFutureProviderRef<Staff> {
-  /// The parameter `staffId` of this provider.
-  String get staffId;
+mixin UserRef on AutoDisposeFutureProviderRef<AppUser> {
+  /// The parameter `userId` of this provider.
+  String get userId;
 }
 
-class _StaffMemberProviderElement
-    extends AutoDisposeFutureProviderElement<Staff>
-    with StaffMemberRef {
-  _StaffMemberProviderElement(super.provider);
+class _UserProviderElement extends AutoDisposeFutureProviderElement<AppUser>
+    with UserRef {
+  _UserProviderElement(super.provider);
 
   @override
-  String get staffId => (origin as StaffMemberProvider).staffId;
+  String get userId => (origin as UserProvider).userId;
 }
 
-String _$staffActionsHash() => r'159d4e11988deb0ad8ce4a8e01012361edf70765';
+String _$userActionsHash() => r'ef95ee8c6ad69836158b2e3b7c1916673c478f64';
 
-/// See also [staffActions].
-@ProviderFor(staffActions)
-final staffActionsProvider = AutoDisposeProvider<StaffActions>.internal(
-  staffActions,
-  name: r'staffActionsProvider',
+/// See also [userActions].
+@ProviderFor(userActions)
+final userActionsProvider = AutoDisposeProvider<UserActions>.internal(
+  userActions,
+  name: r'userActionsProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$staffActionsHash,
+      : _$userActionsHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-typedef StaffActionsRef = AutoDisposeProviderRef<StaffActions>;
+typedef UserActionsRef = AutoDisposeProviderRef<UserActions>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

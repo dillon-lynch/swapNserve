@@ -6,7 +6,7 @@ part of 'transaction.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$itemTransactionsHash() => r'c9ffb700612cacf5010ffd4fb141a336fb71f91f';
+String _$itemTransactionsHash() => r'2376efa1cc91310eae93ef872c6ca29ee411c8be';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -148,7 +148,7 @@ class _ItemTransactionsProviderElement
   String get itemId => (origin as ItemTransactionsProvider).itemId;
 }
 
-String _$eventTransactionsHash() => r'b130deaf46732e67e41edff0472e32b177d1d4ae';
+String _$eventTransactionsHash() => r'0e75f6a76eedeab3e0b7f37fd3be6b3384fbba79';
 
 /// See also [eventTransactions].
 @ProviderFor(eventTransactions)
@@ -269,7 +269,7 @@ class _EventTransactionsProviderElement
   String get eventId => (origin as EventTransactionsProvider).eventId;
 }
 
-String _$itemStockHash() => r'900d28c114d5082cbbb0296cafc982a8d0e486d7';
+String _$itemStockHash() => r'7756000d49ae69aa9e9b6f869700d2e4625f25aa';
 
 /// Derives current stock for an item: SUM(intake) - SUM(distributed).
 ///
@@ -396,7 +396,7 @@ class _ItemStockProviderElement extends AutoDisposeFutureProviderElement<int>
 }
 
 String _$eventDistributionTotalHash() =>
-    r'9c128033b4fcda38329e1564a69acc6ccabbe451';
+    r'3dd32adceac88c704698b88dbf8f23f3271afc0b';
 
 /// Total items distributed during a specific event.
 ///

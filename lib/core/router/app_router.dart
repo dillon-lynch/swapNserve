@@ -7,7 +7,7 @@ import 'package:swap_n_serve/features/locations/screens/locations_screen.dart';
 import 'package:swap_n_serve/features/analytics/screens/event_analytics_screen.dart';
 import 'package:swap_n_serve/features/analytics/screens/location_analytics_screen.dart';
 import 'package:swap_n_serve/features/chat/screens/event_chat_screen.dart';
-import 'package:swap_n_serve/features/staff/screens/staff_screen.dart';
+import 'package:swap_n_serve/features/users/screens/users_screen.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/events',
@@ -60,6 +60,6 @@ final appRouter = GoRouter(
         ),
       ],
     ),
-    GoRoute(path: '/staff', builder: (context, state) => const StaffScreen()),
+    GoRoute(path: '/users', builder: (context, state) => const UsersScreen()),
   ],
 );

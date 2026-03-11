@@ -15,7 +15,7 @@ part 'transaction.g.dart';
 Stream<List<Transaction>> itemTransactions(Ref ref, String itemId) {
   final firestore = ref.watch(firestoreProvider);
   return firestore
-      .collection(FirestorePaths.transactions)
+      .collection(FirestorePaths.inventoryTransactions)
       .where('itemId', isEqualTo: itemId)
       .orderBy('createdAt', descending: true)
       .snapshots()
@@ -26,7 +26,7 @@ Stream<List<Transaction>> itemTransactions(Ref ref, String itemId) {
 Stream<List<Transaction>> eventTransactions(Ref ref, String eventId) {
   final firestore = ref.watch(firestoreProvider);
   return firestore
-      .collection(FirestorePaths.transactions)
+      .collection(FirestorePaths.inventoryTransactions)
       .where('eventId', isEqualTo: eventId)
       .orderBy('createdAt', descending: true)
       .snapshots()
@@ -38,7 +38,7 @@ Stream<List<Transaction>> eventTransactions(Ref ref, String eventId) {
 Future<int> itemStock(Ref ref, String itemId) async {
   final firestore = ref.watch(firestoreProvider);
   final snap = await firestore
-      .collection(FirestorePaths.transactions)
+      .collection(FirestorePaths.inventoryTransactions)
       .where('itemId', isEqualTo: itemId)
       .get();
   final txns = snap.docs.map(Transaction.fromFirestore);
@@ -55,7 +55,7 @@ Future<int> itemStock(Ref ref, String itemId) async {
 Future<int> eventDistributionTotal(Ref ref, String eventId) async {
   final firestore = ref.watch(firestoreProvider);
   final snap = await firestore
-      .collection(FirestorePaths.transactions)
+      .collection(FirestorePaths.inventoryTransactions)
       .where('eventId', isEqualTo: eventId)
       .where('type', isEqualTo: TransactionType.distributed.name)
       .get();
@@ -77,7 +77,7 @@ class TransactionActions {
   TransactionActions(this._firestore);
 
   CollectionReference get _ref =>
-      _firestore.collection(FirestorePaths.transactions);
+      _firestore.collection(FirestorePaths.inventoryTransactions);
 
   Future<void> create(Transaction txn) async {
     await _ref.add(txn.toMap());

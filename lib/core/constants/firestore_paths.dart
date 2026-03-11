@@ -1,9 +1,8 @@
 class FirestorePaths {
   static const String events = 'events';
   static const String locations = 'locations';
-  static const String inventory = 'inventory';
-  static const String transactions = 'transactions';
-  static const String staff = 'staff';
-
-  static String eventMessages(String eventId) => 'events/$eventId/messages';
+  static const String inventoryItems = 'inventory_items';
+  static const String inventoryTransactions = 'inventory_transactions';
+  static const String users = 'users';
+  static const String eventMessages = 'event_messages';
 }

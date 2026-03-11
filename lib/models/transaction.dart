@@ -8,7 +8,7 @@ class Transaction {
   final TransactionType type;
   final int quantity;
   final String? eventId; // null = outside an event
-  final String performedBy; // staff UID
+  final String createdBy; // user UID
   final String notes;
   final DateTime createdAt;
 
@@ -18,7 +18,7 @@ class Transaction {
     required this.type,
     required this.quantity,
     this.eventId,
-    required this.performedBy,
+    required this.createdBy,
     this.notes = '',
     required this.createdAt,
   });
@@ -31,7 +31,7 @@ class Transaction {
       type: TransactionType.values.byName(data['type'] as String),
       quantity: data['quantity'] as int,
       eventId: data['eventId'] as String?,
-      performedBy: data['performedBy'] as String,
+      createdBy: data['createdBy'] as String,
       notes: data['notes'] as String? ?? '',
       createdAt: (data['createdAt'] as Timestamp).toDate(),
     );
@@ -42,7 +42,7 @@ class Transaction {
     'type': type.name,
     'quantity': quantity,
     'eventId': eventId,
-    'performedBy': performedBy,
+    'createdBy': createdBy,
     'notes': notes,
     'createdAt': Timestamp.fromDate(createdAt),
   };
@@ -53,7 +53,7 @@ class Transaction {
     TransactionType? type,
     int? quantity,
     String? eventId,
-    String? performedBy,
+    String? createdBy,
     String? notes,
     DateTime? createdAt,
   }) {
@@ -63,7 +63,7 @@ class Transaction {
       type: type ?? this.type,
       quantity: quantity ?? this.quantity,
       eventId: eventId ?? this.eventId,
-      performedBy: performedBy ?? this.performedBy,
+      createdBy: createdBy ?? this.createdBy,
       notes: notes ?? this.notes,
       createdAt: createdAt ?? this.createdAt,
     );

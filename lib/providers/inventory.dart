@@ -15,7 +15,7 @@ part 'inventory.g.dart';
 Stream<List<InventoryItem>> inventoryStream(Ref ref) {
   final firestore = ref.watch(firestoreProvider);
   return firestore
-      .collection(FirestorePaths.inventory)
+      .collection(FirestorePaths.inventoryItems)
       .orderBy('name')
       .snapshots()
       .map((snap) => snap.docs.map(InventoryItem.fromFirestore).toList());
@@ -25,7 +25,7 @@ Stream<List<InventoryItem>> inventoryStream(Ref ref) {
 Future<InventoryItem> inventoryItem(Ref ref, String itemId) async {
   final firestore = ref.watch(firestoreProvider);
   final doc = await firestore
-      .collection(FirestorePaths.inventory)
+      .collection(FirestorePaths.inventoryItems)
       .doc(itemId)
       .get();
   return InventoryItem.fromFirestore(doc);
@@ -35,7 +35,7 @@ Future<InventoryItem> inventoryItem(Ref ref, String itemId) async {
 Stream<List<InventoryItem>> inventoryByCategory(Ref ref, String category) {
   final firestore = ref.watch(firestoreProvider);
   return firestore
-      .collection(FirestorePaths.inventory)
+      .collection(FirestorePaths.inventoryItems)
       .where('category', isEqualTo: category)
       .orderBy('name')
       .snapshots()
@@ -56,7 +56,7 @@ class InventoryActions {
   InventoryActions(this._firestore);
 
   CollectionReference get _ref =>
-      _firestore.collection(FirestorePaths.inventory);
+      _firestore.collection(FirestorePaths.inventoryItems);
 
   Future<String> create(InventoryItem item) async {
     final doc = await _ref.add(item.toMap());

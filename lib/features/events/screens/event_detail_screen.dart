@@ -30,7 +30,7 @@ class EventDetailScreen extends ConsumerWidget {
               const SizedBox(height: 8),
               Text('${event.startDate.toLocal()} – ${event.endDate.toLocal()}'),
               const SizedBox(height: 8),
-              Text('Staff assigned: ${event.assignedStaff.length}'),
+              Text('Users assigned: ${event.assignedUsers.length}'),
               const SizedBox(height: 8),
               distributionAsync.when(
                 data: (total) => Text('Items distributed: $total'),

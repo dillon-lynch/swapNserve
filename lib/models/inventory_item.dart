@@ -4,6 +4,7 @@ class InventoryItem {
   final String id;
   final String name;
   final String category;
+  final String description;
   final String imageUrl;
   final DateTime createdAt;
 
@@ -16,6 +17,7 @@ class InventoryItem {
     required this.id,
     required this.name,
     required this.category,
+    this.description = '',
     this.imageUrl = '',
     required this.createdAt,
     this.totalStock = 0,
@@ -27,6 +29,7 @@ class InventoryItem {
       id: doc.id,
       name: data['name'] as String,
       category: data['category'] as String,
+      description: data['description'] as String? ?? '',
       imageUrl: data['imageUrl'] as String? ?? '',
       createdAt: (data['createdAt'] as Timestamp).toDate(),
     );
@@ -35,6 +38,7 @@ class InventoryItem {
   Map<String, dynamic> toMap() => {
     'name': name,
     'category': category,
+    'description': description,
     'imageUrl': imageUrl,
     'createdAt': Timestamp.fromDate(createdAt),
   };
@@ -43,6 +47,7 @@ class InventoryItem {
     String? id,
     String? name,
     String? category,
+    String? description,
     String? imageUrl,
     DateTime? createdAt,
     int? totalStock,
@@ -51,6 +56,7 @@ class InventoryItem {
       id: id ?? this.id,
       name: name ?? this.name,
       category: category ?? this.category,
+      description: description ?? this.description,
       imageUrl: imageUrl ?? this.imageUrl,
       createdAt: createdAt ?? this.createdAt,
       totalStock: totalStock ?? this.totalStock,

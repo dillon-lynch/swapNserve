@@ -6,7 +6,7 @@ class Event {
   final DateTime startDate;
   final DateTime endDate;
   final String locationId;
-  final List<String> assignedStaff;
+  final List<String> assignedUsers;
   final String notes;
   final DateTime createdAt;
 
@@ -16,7 +16,7 @@ class Event {
     required this.startDate,
     required this.endDate,
     required this.locationId,
-    required this.assignedStaff,
+    required this.assignedUsers,
     this.notes = '',
     required this.createdAt,
   });
@@ -29,7 +29,7 @@ class Event {
       startDate: (data['startDate'] as Timestamp).toDate(),
       endDate: (data['endDate'] as Timestamp).toDate(),
       locationId: data['locationId'] as String,
-      assignedStaff: List<String>.from(data['assignedStaff'] ?? []),
+      assignedUsers: List<String>.from(data['assignedUsers'] ?? []),
       notes: data['notes'] as String? ?? '',
       createdAt: (data['createdAt'] as Timestamp).toDate(),
     );
@@ -40,7 +40,7 @@ class Event {
     'startDate': Timestamp.fromDate(startDate),
     'endDate': Timestamp.fromDate(endDate),
     'locationId': locationId,
-    'assignedStaff': assignedStaff,
+    'assignedUsers': assignedUsers,
     'notes': notes,
     'createdAt': Timestamp.fromDate(createdAt),
   };
@@ -51,7 +51,7 @@ class Event {
     DateTime? startDate,
     DateTime? endDate,
     String? locationId,
-    List<String>? assignedStaff,
+    List<String>? assignedUsers,
     String? notes,
     DateTime? createdAt,
   }) {
@@ -61,7 +61,7 @@ class Event {
       startDate: startDate ?? this.startDate,
       endDate: endDate ?? this.endDate,
       locationId: locationId ?? this.locationId,
-      assignedStaff: assignedStaff ?? this.assignedStaff,
+      assignedUsers: assignedUsers ?? this.assignedUsers,
       notes: notes ?? this.notes,
       createdAt: createdAt ?? this.createdAt,
     );

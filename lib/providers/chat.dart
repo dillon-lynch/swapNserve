@@ -15,7 +15,8 @@ part 'chat.g.dart';
 Stream<List<ChatMessage>> chatMessages(Ref ref, String eventId) {
   final firestore = ref.watch(firestoreProvider);
   return firestore
-      .collection(FirestorePaths.eventMessages(eventId))
+      .collection(FirestorePaths.eventMessages)
+      .where('eventId', isEqualTo: eventId)
       .orderBy('sentAt', descending: false)
       .snapshots()
       .map((snap) => snap.docs.map(ChatMessage.fromFirestore).toList());
@@ -36,7 +37,7 @@ class ChatActions {
 
   Future<void> sendMessage(String eventId, ChatMessage message) async {
     await _firestore
-        .collection(FirestorePaths.eventMessages(eventId))
+        .collection(FirestorePaths.eventMessages)
         .add(message.toMap());
   }
 }
