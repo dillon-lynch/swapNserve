@@ -46,16 +46,24 @@ class _SystemHash {
   }
 }
 
-/// See also [chatMessages].
+/// Real-time stream of messages for [eventId], ordered oldest-first.
+///
+/// Copied from [chatMessages].
 @ProviderFor(chatMessages)
 const chatMessagesProvider = ChatMessagesFamily();
 
-/// See also [chatMessages].
+/// Real-time stream of messages for [eventId], ordered oldest-first.
+///
+/// Copied from [chatMessages].
 class ChatMessagesFamily extends Family<AsyncValue<List<ChatMessage>>> {
-  /// See also [chatMessages].
+  /// Real-time stream of messages for [eventId], ordered oldest-first.
+  ///
+  /// Copied from [chatMessages].
   const ChatMessagesFamily();
 
-  /// See also [chatMessages].
+  /// Real-time stream of messages for [eventId], ordered oldest-first.
+  ///
+  /// Copied from [chatMessages].
   ChatMessagesProvider call(String eventId) {
     return ChatMessagesProvider(eventId);
   }
@@ -82,10 +90,14 @@ class ChatMessagesFamily extends Family<AsyncValue<List<ChatMessage>>> {
   String? get name => r'chatMessagesProvider';
 }
 
-/// See also [chatMessages].
+/// Real-time stream of messages for [eventId], ordered oldest-first.
+///
+/// Copied from [chatMessages].
 class ChatMessagesProvider
     extends AutoDisposeStreamProvider<List<ChatMessage>> {
-  /// See also [chatMessages].
+  /// Real-time stream of messages for [eventId], ordered oldest-first.
+  ///
+  /// Copied from [chatMessages].
   ChatMessagesProvider(String eventId)
     : this._internal(
         (ref) => chatMessages(ref as ChatMessagesRef, eventId),
@@ -165,5 +177,24 @@ class _ChatMessagesProviderElement
   String get eventId => (origin as ChatMessagesProvider).eventId;
 }
 
+String _$currentUserIdHash() => r'76e427c982d65d337a61b23ca95c4af52f98eeb9';
+
+/// The current Firebase Auth user ID, or null if not signed in.
+///
+/// Copied from [currentUserId].
+@ProviderFor(currentUserId)
+final currentUserIdProvider = AutoDisposeProvider<String?>.internal(
+  currentUserId,
+  name: r'currentUserIdProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$currentUserIdHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef CurrentUserIdRef = AutoDisposeProviderRef<String?>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

@@ -10,10 +10,11 @@ class ChatRepository {
   CollectionReference get _ref =>
       _firestore.collection(FirestorePaths.eventMessages);
 
+  /// Real-time stream of messages for a single event, ordered oldest-first.
   Stream<List<ChatMessage>> watchMessages(String eventId) {
     return _ref
         .where('eventId', isEqualTo: eventId)
-        .orderBy('sentAt', descending: false)
+        .orderBy('timestamp', descending: false)
         .snapshots()
         .map((snap) => snap.docs.map(ChatMessage.fromFirestore).toList());
   }

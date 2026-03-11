@@ -24,10 +24,9 @@ mixin _$ChatMessage {
   String get id => throw _privateConstructorUsedError;
   String get eventId => throw _privateConstructorUsedError;
   String get senderId => throw _privateConstructorUsedError;
-  String get senderName => throw _privateConstructorUsedError;
-  String get text => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
   @TimestampConverter()
-  DateTime get sentAt => throw _privateConstructorUsedError;
+  DateTime get timestamp => throw _privateConstructorUsedError;
 
   /// Serializes this ChatMessage to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -50,9 +49,8 @@ abstract class $ChatMessageCopyWith<$Res> {
     String id,
     String eventId,
     String senderId,
-    String senderName,
-    String text,
-    @TimestampConverter() DateTime sentAt,
+    String message,
+    @TimestampConverter() DateTime timestamp,
   });
 }
 
@@ -74,9 +72,8 @@ class _$ChatMessageCopyWithImpl<$Res, $Val extends ChatMessage>
     Object? id = null,
     Object? eventId = null,
     Object? senderId = null,
-    Object? senderName = null,
-    Object? text = null,
-    Object? sentAt = null,
+    Object? message = null,
+    Object? timestamp = null,
   }) {
     return _then(
       _value.copyWith(
@@ -92,17 +89,13 @@ class _$ChatMessageCopyWithImpl<$Res, $Val extends ChatMessage>
                 ? _value.senderId
                 : senderId // ignore: cast_nullable_to_non_nullable
                       as String,
-            senderName: null == senderName
-                ? _value.senderName
-                : senderName // ignore: cast_nullable_to_non_nullable
+            message: null == message
+                ? _value.message
+                : message // ignore: cast_nullable_to_non_nullable
                       as String,
-            text: null == text
-                ? _value.text
-                : text // ignore: cast_nullable_to_non_nullable
-                      as String,
-            sentAt: null == sentAt
-                ? _value.sentAt
-                : sentAt // ignore: cast_nullable_to_non_nullable
+            timestamp: null == timestamp
+                ? _value.timestamp
+                : timestamp // ignore: cast_nullable_to_non_nullable
                       as DateTime,
           )
           as $Val,
@@ -123,9 +116,8 @@ abstract class _$$ChatMessageImplCopyWith<$Res>
     String id,
     String eventId,
     String senderId,
-    String senderName,
-    String text,
-    @TimestampConverter() DateTime sentAt,
+    String message,
+    @TimestampConverter() DateTime timestamp,
   });
 }
 
@@ -146,9 +138,8 @@ class __$$ChatMessageImplCopyWithImpl<$Res>
     Object? id = null,
     Object? eventId = null,
     Object? senderId = null,
-    Object? senderName = null,
-    Object? text = null,
-    Object? sentAt = null,
+    Object? message = null,
+    Object? timestamp = null,
   }) {
     return _then(
       _$ChatMessageImpl(
@@ -164,17 +155,13 @@ class __$$ChatMessageImplCopyWithImpl<$Res>
             ? _value.senderId
             : senderId // ignore: cast_nullable_to_non_nullable
                   as String,
-        senderName: null == senderName
-            ? _value.senderName
-            : senderName // ignore: cast_nullable_to_non_nullable
+        message: null == message
+            ? _value.message
+            : message // ignore: cast_nullable_to_non_nullable
                   as String,
-        text: null == text
-            ? _value.text
-            : text // ignore: cast_nullable_to_non_nullable
-                  as String,
-        sentAt: null == sentAt
-            ? _value.sentAt
-            : sentAt // ignore: cast_nullable_to_non_nullable
+        timestamp: null == timestamp
+            ? _value.timestamp
+            : timestamp // ignore: cast_nullable_to_non_nullable
                   as DateTime,
       ),
     );
@@ -188,9 +175,8 @@ class _$ChatMessageImpl extends _ChatMessage {
     required this.id,
     required this.eventId,
     required this.senderId,
-    required this.senderName,
-    required this.text,
-    @TimestampConverter() required this.sentAt,
+    required this.message,
+    @TimestampConverter() required this.timestamp,
   }) : super._();
 
   factory _$ChatMessageImpl.fromJson(Map<String, dynamic> json) =>
@@ -203,16 +189,14 @@ class _$ChatMessageImpl extends _ChatMessage {
   @override
   final String senderId;
   @override
-  final String senderName;
-  @override
-  final String text;
+  final String message;
   @override
   @TimestampConverter()
-  final DateTime sentAt;
+  final DateTime timestamp;
 
   @override
   String toString() {
-    return 'ChatMessage(id: $id, eventId: $eventId, senderId: $senderId, senderName: $senderName, text: $text, sentAt: $sentAt)';
+    return 'ChatMessage(id: $id, eventId: $eventId, senderId: $senderId, message: $message, timestamp: $timestamp)';
   }
 
   @override
@@ -224,16 +208,15 @@ class _$ChatMessageImpl extends _ChatMessage {
             (identical(other.eventId, eventId) || other.eventId == eventId) &&
             (identical(other.senderId, senderId) ||
                 other.senderId == senderId) &&
-            (identical(other.senderName, senderName) ||
-                other.senderName == senderName) &&
-            (identical(other.text, text) || other.text == text) &&
-            (identical(other.sentAt, sentAt) || other.sentAt == sentAt));
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.timestamp, timestamp) ||
+                other.timestamp == timestamp));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, eventId, senderId, senderName, text, sentAt);
+      Object.hash(runtimeType, id, eventId, senderId, message, timestamp);
 
   /// Create a copy of ChatMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -254,9 +237,8 @@ abstract class _ChatMessage extends ChatMessage {
     required final String id,
     required final String eventId,
     required final String senderId,
-    required final String senderName,
-    required final String text,
-    @TimestampConverter() required final DateTime sentAt,
+    required final String message,
+    @TimestampConverter() required final DateTime timestamp,
   }) = _$ChatMessageImpl;
   const _ChatMessage._() : super._();
 
@@ -270,12 +252,10 @@ abstract class _ChatMessage extends ChatMessage {
   @override
   String get senderId;
   @override
-  String get senderName;
-  @override
-  String get text;
+  String get message;
   @override
   @TimestampConverter()
-  DateTime get sentAt;
+  DateTime get timestamp;
 
   /// Create a copy of ChatMessage
   /// with the given fields replaced by the non-null parameter values.

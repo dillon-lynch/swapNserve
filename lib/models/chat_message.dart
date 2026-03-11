@@ -13,9 +13,8 @@ class ChatMessage with _$ChatMessage {
     required String id,
     required String eventId,
     required String senderId,
-    required String senderName,
-    required String text,
-    @TimestampConverter() required DateTime sentAt,
+    required String message,
+    @TimestampConverter() required DateTime timestamp,
   }) = _ChatMessage;
 
   factory ChatMessage.fromJson(Map<String, dynamic> json) =>

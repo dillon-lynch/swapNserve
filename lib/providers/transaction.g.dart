@@ -505,5 +505,144 @@ class _EventDistributionTotalProviderElement
   String get eventId => (origin as EventDistributionTotalProvider).eventId;
 }
 
+String _$categoryStockHash() => r'040d604588d851d0e9a449243058f82d6d037d0d';
+
+/// See also [categoryStock].
+@ProviderFor(categoryStock)
+const categoryStockProvider = CategoryStockFamily();
+
+/// See also [categoryStock].
+class CategoryStockFamily extends Family<AsyncValue<CategoryStock>> {
+  /// See also [categoryStock].
+  const CategoryStockFamily();
+
+  /// See also [categoryStock].
+  CategoryStockProvider call(String category) {
+    return CategoryStockProvider(category);
+  }
+
+  @override
+  CategoryStockProvider getProviderOverride(
+    covariant CategoryStockProvider provider,
+  ) {
+    return call(provider.category);
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'categoryStockProvider';
+}
+
+/// See also [categoryStock].
+class CategoryStockProvider extends AutoDisposeFutureProvider<CategoryStock> {
+  /// See also [categoryStock].
+  CategoryStockProvider(String category)
+    : this._internal(
+        (ref) => categoryStock(ref as CategoryStockRef, category),
+        from: categoryStockProvider,
+        name: r'categoryStockProvider',
+        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+            ? null
+            : _$categoryStockHash,
+        dependencies: CategoryStockFamily._dependencies,
+        allTransitiveDependencies:
+            CategoryStockFamily._allTransitiveDependencies,
+        category: category,
+      );
+
+  CategoryStockProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.category,
+  }) : super.internal();
+
+  final String category;
+
+  @override
+  Override overrideWith(
+    FutureOr<CategoryStock> Function(CategoryStockRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: CategoryStockProvider._internal(
+        (ref) => create(ref as CategoryStockRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        category: category,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<CategoryStock> createElement() {
+    return _CategoryStockProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is CategoryStockProvider && other.category == category;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, category.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin CategoryStockRef on AutoDisposeFutureProviderRef<CategoryStock> {
+  /// The parameter `category` of this provider.
+  String get category;
+}
+
+class _CategoryStockProviderElement
+    extends AutoDisposeFutureProviderElement<CategoryStock>
+    with CategoryStockRef {
+  _CategoryStockProviderElement(super.provider);
+
+  @override
+  String get category => (origin as CategoryStockProvider).category;
+}
+
+String _$allCategoryStockHash() => r'5db00c5a339bdba72623fade9bd7eddfbd04da80';
+
+/// See also [allCategoryStock].
+@ProviderFor(allCategoryStock)
+final allCategoryStockProvider =
+    AutoDisposeFutureProvider<Map<String, CategoryStock>>.internal(
+      allCategoryStock,
+      name: r'allCategoryStockProvider',
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$allCategoryStockHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef AllCategoryStockRef =
+    AutoDisposeFutureProviderRef<Map<String, CategoryStock>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
