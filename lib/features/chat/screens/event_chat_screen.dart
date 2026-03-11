@@ -29,6 +29,7 @@ class _EventChatScreenState extends ConsumerState<EventChatScreen> {
 
     final message = ChatMessage(
       id: '', // Firestore will auto-generate
+      eventId: widget.eventId,
       senderId: 'TODO_CURRENT_USER_ID',
       senderName: 'TODO_CURRENT_USER_NAME',
       text: text,
